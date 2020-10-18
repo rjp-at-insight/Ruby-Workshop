@@ -21,6 +21,10 @@ def array_stats(input_array)
 end
 
 # Main
-array_stats([1,2,3])
+
 stats = array_stats([500, 12, 1, 99, 55, 12, 12])
+puts stats
 sum, median, mean = array_stats([500, 12, 1, 99, 55, 12, 12])
+puts sum
+puts median
+puts mean
