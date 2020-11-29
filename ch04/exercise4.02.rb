@@ -10,7 +10,6 @@
 # arguments to pass to the method. Let's take a look at an example using an API client that makes 
 # a web request. The web request method can take any number of arguments:
 
-
 # First, we need to create a method that implements a method called get_data and takes the url, 
 # headers, and params variables, which use the splat operator.
 def get_data(url, headers = {}, *params)
@@ -30,6 +29,24 @@ def get_data(url, headers = {}, *params)
 end
 
 # Next , we write a method that assembles parameters into an array.
-def assemble_params(include_headers=false, include_data_in_search=false, only_show_my_record=true)
+def assemble_params(include_headers=false, include_date_in_search=false, only_show_my_record=true)
+    
+    headers = {accept: "application/json"}
+    url = "https://exampleapi.com"
+    args = [url]
+    args << headers if include_headers
+    params = []
+    params << "date=#{Time.now}" if include_date_in_search
+    params << "myrecords=true" if only_show_my_record
+    args << params if params.length > 0
 
 end
+
+#main
+puts  "============================================================================="
+get_data(*assemble_params)
+puts  "============================================================================="
+get_data(*assemble_params(true))
+puts  "============================================================================="
+get_data(*assemble_params(false, true, false))
+puts  "============================================================================="
