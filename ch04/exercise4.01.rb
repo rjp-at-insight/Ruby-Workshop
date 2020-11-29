@@ -1,6 +1,6 @@
 #   AUTHOR      : Robert James Patterson
 #   DATE        : 10/18/2020
-#   FILE        : comparing.rb
+#   FILE        : exercise4.01.rb
 #   SYNOPSIS    : using methods in Ruby.
 
 def calculate_median(array)
